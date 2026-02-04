@@ -1,0 +1,5 @@
+llm = ChatGoogleGenerativeAI(
+    model="gemini-2.5-flash",
+    temperature=0.2,
+    google_api_key="AIzaSyA9N1oJWHUYJxSptEdkR1ovB4jVCjdaYx4"
+)
