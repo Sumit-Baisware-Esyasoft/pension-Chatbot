@@ -2,7 +2,7 @@ import os
 from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_google_genai import ChatGoogleGenerativeAI
-
+import streamlit as st
 # ---------------------------
 # Load Vector DB
 # ---------------------------
@@ -22,7 +22,8 @@ vector_db = FAISS.load_local(
 llm = ChatGoogleGenerativeAI(
     model="gemini-1.5-flash",
     temperature=0.2,
-    google_api_key=os.getenv("GOOGLE_API_KEY")
+    google_api_key=os.getenv("GOOGLE_API_KEY") or st.secrets["GOOGLE_API_KEY"]
+
 )
 
 # ---------------------------
